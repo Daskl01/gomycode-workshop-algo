@@ -1,16 +1,30 @@
-ALGORITHM calcul
+ALGORITHM meilleur_tarif
 VAR
-    Total_kilometre:INTEGER
-    Number_days:INTEGER
-    Total_costs:INTEGER
+    nb_km,nb_day:INTEGER
+    day_cost:INTEGER
+    km_cost:INTEGER
 CONST
-    r1,r2,r3,ins,tva
+    r1,r2,r3,ins,tva,p_d
 BEGIN
-    read(r1)
-    read(r2)
-    read(r3)
-    read(ins)
-    read(tva)
-    Total_kilometre:=(r1+r2+r3)
-    
+    read(nb_km)
+    read(nb_day)
+        if (nb_day<=100) do 
+            km_cost:=(r1*nb_km + nb_day*ins)+(r1*nb_km+nb_day*ins)*0.18
+        END if
+
+        if (nb_km>100 and nb_km<=1000) do
+            km_cost:=[(r1*100) + (r2*nb_km-100)+(nb_day*ins)]*0.18 +(r1*100) + (r2*nb_km-100)+(nb_day*ins)
+        END if
+
+        if (nb_km>1000) do
+            km_cost:=(r1*100) + (r2*900)+(nb_day*ins)+(r3*nb_km-1000)*(nb_day*ins)*0.18 +(r1*100) + (r2*900)+(r3*nb_km-1000)*(nb_day*ins)
+        END if
+
+        day_cost:=[(p_d*nb_day)+(nb_day*ins)]*0.18+(p_d*nb_day)+(nb_day*ins)
+        IF (day_cost>km_cost) THEN
+            write("le meilleur tarif est km_cost:"km_cost)
+        ELSE
+            write("le meilleur tarif est day_cost:"day_cost)
+        END_IF
+
 END
