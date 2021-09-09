@@ -1,0 +1,40 @@
+ALGORITHM Date
+VAR
+    Num,Num_j,Num_m,Num_a,Q_numa,Q_numj:INTEGER
+     //num est le nombre entré;
+     //Num_j,Num_m,Num_a sont respectivement le nombre du jour,le nombre de mois,le nombre d'année;
+     //Q_numa,Q_numj sont respectivement le quotient de la division de l'année et le quotient de la division du jour 
+BEGIN
+    write("Veuillez entrz des nombres de 6 chiffres:")
+    lire (Num)
+    Num_a:=(Num%100)
+    Q_numa:=(Num/100)
+    Num_m:=(Q_numa%100)
+    Q_numj:=(Q_numa/100)
+    Num_j:=Q_numj
+    IF (Num_j>1 and Num_j<=31) THEN
+        write("jour:"Num_j)
+    ELSE
+        write("jour n'est pas valide")
+    END_IF
+    SWITCH (Num_m) DO
+        case 1 : Janvier
+        case 2 : fevrier
+        case 3 : mars
+        case 4 : avril
+        case 5 : mai
+        case 6 : juin
+        case 7 : juillet
+        case 8 : août
+        case 9 : septembre
+        case 10 : octobre
+        case 11 : Novembre
+        case 12 : Decembre
+        default : write("le mois n'est pas valide")
+    END_SWITCH
+    IF (Num_a>00) THEN
+        write("année:20"Num_a)
+    ELSE
+        write("l'année n'est pas valide ")
+    END_IF
+END

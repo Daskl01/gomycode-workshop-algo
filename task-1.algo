@@ -1,0 +1,14 @@
+ALGORITHM permutation
+VAR
+    x,y,z,a:INTEGER
+BEGIN
+    read(x)
+    read(y)
+    read(z)
+    a:=x
+    x:=y
+    y:=z
+    z:=a
+    
+    write(x,y,z)
+END

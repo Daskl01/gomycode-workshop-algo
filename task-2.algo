@@ -1,0 +1,16 @@
+ALGORITHM calcul
+VAR
+    Total_kilometre:INTEGER
+    Number_days:INTEGER
+    Total_costs:INTEGER
+CONST
+    r1,r2,r3,ins,tva
+BEGIN
+    read(r1)
+    read(r2)
+    read(r3)
+    read(ins)
+    read(tva)
+    Total_kilometre:=(r1+r2+r3)
+    
+END
